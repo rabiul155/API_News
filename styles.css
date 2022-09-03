@@ -3,3 +3,9 @@
     width: 30px;
 
 }
+
+.author {
+    height: 30px;
+    width: 30px;
+    border-radius: 15px;
+}
