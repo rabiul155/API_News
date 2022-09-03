@@ -51,7 +51,7 @@ const displayNewsCategory = (data) => {
          <div class="card mb-3" style="max-width: 1540px;">
             <div class="row g-0">
              <div class="col-md-4">
-                <img src="${news.image_url}" class="img-fluid rounded-start" alt="...">
+                <img src="${news.image_url}" class="img-fluid rounded-start h-100" alt="...">
              </div>
              <div class="col-md-8">
                 <div class="card-body">
@@ -79,7 +79,7 @@ const displayNewsCategory = (data) => {
                 
                     <div>
                     <button onclick="showDetails('${news._id}')" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Show Details
+                    Details
                     </button>
                     </div>
                 </div>                
@@ -108,9 +108,16 @@ const showDetails = async (id) => {
 }
 
 displayModalDetails = (data) => {
+    console.log(data);
     const modalTitle = document.getElementById('exampleModalLabel');
     modalTitle.innerText = data.title;
+    const newsDetails = document.getElementById('news-details')
+    newsDetails.innerHTML = `
+    <h5>Author name : ${data.author.name} </h5>
+    <p>Publish date :${data.author.published_date} </p>
+    <p> Rating : ${data.rating.number}</p>
 
+    `;
 
 }
 
