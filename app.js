@@ -51,7 +51,7 @@ const displayNewsCategory = (data) => {
     const cardContainer = document.getElementById('card-container');
     cardContainer.innerHTML = '';
 
-    inputField.value = `${data.length} iteam found from this category`;
+    inputField.value = `${data.length} item found from this category`;
     spinnerLoad(true);
     data.forEach(news => {
         const details = news.details.slice(0, 300);
@@ -71,13 +71,13 @@ const displayNewsCategory = (data) => {
                     <div class=" d-flex align-items-center">
                         <img class=" author" src="${news.author.img}" alt="">
                         <div class=" px-2">
-                            <p class=" m-0 p-0 fw-bold">${news.author.name}</p>
+                            <p class=" m-0 p-0 fw-bold">${news.author.name ? news.author.name : 'No author found'}</p>
                             <span class=" m-0 p-0 text-muted">${news.author.published_date}</span>
                         </div>
                     </div>
                     <div class=" d-flex p-2 align-items-center">
                         <i class="fa-regular fa-eye"></i>
-                        <p class=" m-1 fw-bold">${news.total_view}M</p>
+                        <p class=" m-1 fw-bold">${news.total_view ? news.total_view : 'data missing'}M</p>
                     </div>
                     <div>
                         <i class="fa-solid fa-star-half-stroke"></i>
@@ -123,9 +123,10 @@ displayModalDetails = (data) => {
     modalTitle.innerText = data.title;
     const newsDetails = document.getElementById('news-details')
     newsDetails.innerHTML = `
-    <h5>Author name : ${data.author.name} </h5>
-    <p>Publish date :${data.author.published_date} </p>
-    <p> Rating : ${data.rating.number}</p>
+    <h5>Author name : ${data.author.name ? data.author.name : 'No data available'} </h5>
+    <p>Publish date :${data.author.published_date ? data.author.published_date : 'No data available'} </p>
+    <p>View :${data.total_view ? data.total_view : 'No data available'}</p>
+    <p> Rating : ${data.rating.number ? data.rating.number : 'No data available'} </p>
 
     `;
 
