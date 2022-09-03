@@ -22,6 +22,7 @@ const loadNews = (data) => {
         <button onclick="loadNewsCategory('${news.category_id}')" type="button" class="border-0 btn btn-outline-secondary">${news.category_name}</button>
         `;
         newsButton.appendChild(div);
+
     });
 
 }
@@ -38,19 +39,22 @@ const loadNewsCategory = async (id) => {
 
 
 }
+const inputField = document.getElementById('text-field');
 function clearEverithing() {
     const cardContainer = document.getElementById('card-container');
     cardContainer.innerHTML = '';
+    inputField.value = '';
 }
 
 const displayNewsCategory = (data) => {
     // console.log(data);
     const cardContainer = document.getElementById('card-container');
     cardContainer.innerHTML = '';
+
+    inputField.value = `${data.length} iteam found from this category`;
     spinnerLoad(true);
     data.forEach(news => {
         const details = news.details.slice(0, 300);
-
         console.log(news);
         const div = document.createElement('div');
         div.innerHTML = `
