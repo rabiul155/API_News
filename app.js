@@ -29,7 +29,7 @@ const loadNews = (data) => {
 // news category 
 
 const loadNewsCategory = async (id) => {
-    console.log(id);
+    // console.log(id);
     const url = `https://openapi.programming-hero.com/api/news/category/${id}`;
     const res = await fetch(url);
     const data = await res.json();
@@ -39,7 +39,7 @@ const loadNewsCategory = async (id) => {
 }
 
 const displayNewsCategory = (data) => {
-    console.log(data);
+    // console.log(data);
     const cardContainer = document.getElementById('card-container');
     cardContainer.innerHTML = '';
     data.forEach(news => {
@@ -78,7 +78,9 @@ const displayNewsCategory = (data) => {
                     </div>
                 
                     <div>
-                        <button> <i class="fa-solid fa-arrow-right"></i></button>
+                    <button onclick="showDetails('${news._id}')" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Show Details
+                    </button>
                     </div>
                 </div>                
                  </div>
@@ -96,6 +98,22 @@ const displayNewsCategory = (data) => {
 
 
 }
+
+const showDetails = async (id) => {
+    console.log(id);
+    const url = `https://openapi.programming-hero.com/api/news/${id}`;
+    const res = await fetch(url);
+    const data = await res.json();
+    displayModalDetails(data.data[0]);
+}
+
+displayModalDetails = (data) => {
+    const modalTitle = document.getElementById('exampleModalLabel');
+    modalTitle.innerText = data.title;
+
+
+}
+
 
 
 allNews();
