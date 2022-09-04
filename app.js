@@ -1,13 +1,20 @@
-console.log('js connected')
+// console.log('js connected')
 
 
 // news api load 
 
 const allNews = async () => {
-    const url = 'https://openapi.programming-hero.com/api/news/categories';
-    const res = await fetch(url);
-    const data = await res.json();
-    loadNews(data.data.news_category);
+    try {
+        const url = 'https://openapi.programming-hero.com/api/news/categories';
+        const res = await fetch(url);
+        const data = await res.json();
+        loadNews(data.data.news_category);
+    }
+    catch (error) {
+        console.log(error);
+    }
+
+
 }
 
 const loadNews = (data) => {
@@ -32,10 +39,16 @@ const loadNews = (data) => {
 const loadNewsCategory = async (id) => {
     spinnerLoad(true);
     // console.log(id);
-    const url = `https://openapi.programming-hero.com/api/news/category/${id}`;
-    const res = await fetch(url);
-    const data = await res.json();
-    displayNewsCategory(data.data);
+    try {
+        const url = `https://openapi.programming-hero.com/api/news/category/${id}`;
+        const res = await fetch(url);
+        const data = await res.json();
+        displayNewsCategory(data.data);
+    }
+    catch (error) {
+        console.log(error);
+    }
+
 
 
 }
@@ -111,10 +124,16 @@ const displayNewsCategory = (data) => {
 
 const showDetails = async (id) => {
     console.log(id);
-    const url = `https://openapi.programming-hero.com/api/news/${id}`;
-    const res = await fetch(url);
-    const data = await res.json();
-    displayModalDetails(data.data[0]);
+    try {
+        const url = `https://openapi.programming-hero.com/api/news/${id}`;
+        const res = await fetch(url);
+        const data = await res.json();
+        displayModalDetails(data.data[0]);
+    }
+    catch (error) {
+        console.log(error);
+    }
+
 }
 
 displayModalDetails = (data) => {
