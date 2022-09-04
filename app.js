@@ -60,9 +60,12 @@ function clearEverithing() {
 }
 
 const displayNewsCategory = (data) => {
-    // console.log(data);
+    console.log(data);
     const cardContainer = document.getElementById('card-container');
     cardContainer.innerHTML = '';
+
+    data.sort((s1, s2) => s2.total_view - s1.total_view);
+
 
     inputField.value = `${data.length} item found from this category`;
     spinnerLoad(true);
@@ -90,7 +93,7 @@ const displayNewsCategory = (data) => {
                     </div>
                     <div class=" d-flex p-2 align-items-center">
                         <i class="fa-regular fa-eye"></i>
-                        <p class=" m-1 fw-bold">${news.total_view ? news.total_view : 'data missing'}M</p>
+                        <p class=" m-1 fw-bold">${news.total_view ? news.total_view : 'data missing 0'}M</p>
                     </div>
                     <div class="d-none d-sm-none d-lg-block">
                         <i class="fa-solid fa-star-half-stroke"></i>
