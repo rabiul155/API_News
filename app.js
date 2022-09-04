@@ -85,14 +85,14 @@ const displayNewsCategory = (data) => {
                         <img class=" author" src="${news.author.img}" alt="">
                         <div class=" px-2">
                             <p class=" m-0 p-0 fw-bold">${news.author.name ? news.author.name : 'No author found'}</p>
-                            <span class=" m-0 p-0 text-muted">${news.author.published_date}</span>
+                            <span class=" m-0 p-0 text-muted d-none d-sm-none d-lg-block">${news.author.published_date}</span>
                         </div>
                     </div>
                     <div class=" d-flex p-2 align-items-center">
                         <i class="fa-regular fa-eye"></i>
                         <p class=" m-1 fw-bold">${news.total_view ? news.total_view : 'data missing'}M</p>
                     </div>
-                    <div>
+                    <div class="d-none d-sm-none d-lg-block">
                         <i class="fa-solid fa-star-half-stroke"></i>
                         <i class="fa-regular fa-star"></i>
                         <i class="fa-regular fa-star"></i>
