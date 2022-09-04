@@ -17,6 +17,8 @@ const allNews = async () => {
 
 }
 
+// news button section.....
+
 const loadNews = (data) => {
     // console.log(data);
     const newsButton = document.getElementById('news-button');
@@ -34,7 +36,7 @@ const loadNews = (data) => {
 
 }
 
-// news category 
+// news category load in body section.........
 
 const loadNewsCategory = async (id) => {
     spinnerLoad(true);
@@ -52,6 +54,9 @@ const loadNewsCategory = async (id) => {
 
 
 }
+
+// show the number of the each category section .....
+
 const inputField = document.getElementById('text-field');
 function clearEverithing() {
     const cardContainer = document.getElementById('card-container');
@@ -125,6 +130,8 @@ const displayNewsCategory = (data) => {
 
 }
 
+// modal datalload section section................
+
 const showDetails = async (id) => {
     console.log(id);
     try {
@@ -138,6 +145,8 @@ const showDetails = async (id) => {
     }
 
 }
+
+// modal details section......
 
 displayModalDetails = (data) => {
     console.log(data);
